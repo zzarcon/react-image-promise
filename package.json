@@ -1,6 +1,6 @@
 {
   "name": "react-image-promise",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Renders an image based on a promise or not",
   "main": "dist/index.js",
   "scripts": {
