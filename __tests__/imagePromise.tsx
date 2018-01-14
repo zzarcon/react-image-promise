@@ -1,0 +1,5 @@
+describe('ImagePromise', () => {
+  test('should', () => {
+
+  });
+});

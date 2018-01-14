@@ -8,7 +8,7 @@
     "dev": "webpack-dev-server",
     "test": "jest",
     "test-ci": "jest --runInBand --coverage",
-    "build": "webpack -p",
+    "build": "NODE_ENV=production tsc -p ./tsconfig.prod.json",
     "release": "npm version patch && git push --tags && git push && npm publish",
     "prepublishOnly": "test-ci && yarn build"
   },
@@ -32,6 +32,17 @@
     "react": "^16.0.0"
   },
   "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "<rootDir>/preprocessor.js"
+    },
+    "testMatch": [
+      "**/__tests__/*.(ts|tsx|js)"
+    ],
     "resetMocks": true
   }
 }
