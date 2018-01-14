@@ -7,10 +7,10 @@
     "start": "webpack -w",
     "dev": "webpack-dev-server",
     "test": "jest",
-    "test-ci": "jest --runInBand --coverage",
+    "test:ci": "jest --runInBand --coverage",
     "build": "NODE_ENV=production tsc -p ./tsconfig.prod.json",
     "release": "npm version patch && git push --tags && git push && npm publish",
-    "prepublishOnly": "test-ci && yarn build"
+    "prepublishOnly": "yarn test:ci && yarn build"
   },
   "repository": "git@github.com:zzarcon/react-image-promise.git",
   "author": "zzarcon",
