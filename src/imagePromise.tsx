@@ -12,6 +12,8 @@ export interface ImagePromiseProps {
   loadingPlaceholder?: ReactNode;
   errorPlaceholder?: ReactNode;
   onError?: (e: SyntheticEvent<HTMLImageElement>) => void;
+
+  [propName: string]: any;
 }
 
 class ImagePromise extends Component<ImagePromiseProps, ImagePromiseState> {
@@ -24,7 +26,10 @@ class ImagePromise extends Component<ImagePromiseProps, ImagePromiseState> {
     const {src} = this.props;
 
     if (typeof src === 'string') {
-      this.setState({src});
+      this.setState({
+        isLoading: false,
+        src
+      });
     } else {
       src.then(this.onImageLoaded).catch(this.onImageErrored);
     }
